@@ -1,0 +1,13 @@
+name: Integration
+on:[push]
+jobs:
+  eslint_check:
+    name: Check Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Run ESLint
+        uses: eslint . --ext .js
