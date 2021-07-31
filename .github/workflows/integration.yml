@@ -1,7 +1,7 @@
 name: Integration
 on: [push]
 jobs:
-  Check-Linting:
+  Integration-Check:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -10,3 +10,5 @@ jobs:
         run: yarn
       - name: Run ESLint
         run: ./node_modules/.bin/eslint . --ext .js
+      - name: Run Unit Tests
+        run: ./node_modules/.bin/jest
