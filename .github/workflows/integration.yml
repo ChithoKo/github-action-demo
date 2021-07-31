@@ -1,8 +1,7 @@
 name: Integration
-on:[push]
+on: [push]
 jobs:
-  eslint_check:
-    name: Check Linting
+  Check-Linting:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
