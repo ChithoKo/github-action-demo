@@ -1,22 +1,14 @@
 name: Integration
 on: [push]
 jobs:
-  Setup-Repository:
+  Integration-Check:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Install modules
         run: yarn
-  ESLint-Check:
-    runs-on: ubuntu-latest
-    needs: Setup-Repository
-    steps:
       - name: Run ESLint
         run: ./node_modules/.bin/eslint . --ext .js
-  # Unit-Tests-Check:
-  #   runs-on: ubuntu-latest
-  #   needs: Setup-Repository
-  #   steps:
-  #     - name: Run Unit Tests
-  #       run: ./node_modules/.bin/jest
+      - name: Run Unit Tests
+        run: ./node_modules/.bin/jest
